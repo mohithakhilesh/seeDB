@@ -1,15 +1,15 @@
-drop table all_adults2;
-drop table unmarried_adults3;
-drop table married_adults3;
+drop table all_adults;
+drop table unmarried_adults;
+drop table married_adults;
 
-create table all_adults2 (age integer NULL, workclass varchar(50) NULL,fnlwgt integer NULL, education varchar(50) NULL, education_num integer NULL, marital_status varchar(50) NULL, occupation varchar(50) NULL, relationship varchar(50) NULL, race varchar(50) NULL, sex varchar(50) NULL, capital_gain integer NULL, capital_loss integer NULL, hours_per_week integer NULL, native_country varchar(50) NULL, salary_range varchar NULL);
+create table all_adults (age integer NULL, workclass varchar(50) NULL,fnlwgt integer NULL, education varchar(50) NULL, education_num integer NULL, marital_status varchar(50) NULL, occupation varchar(50) NULL, relationship varchar(50) NULL, race varchar(50) NULL, sex varchar(50) NULL, capital_gain integer NULL, capital_loss integer NULL, hours_per_week integer NULL, native_country varchar(50) NULL, salary_range varchar NULL);
 
-\COPY all_adults2 FROM 'adult_data_preprocessed.csv' DELIMITER ',' HEADER CSV;
+\COPY all_adults FROM 'adult_data_preprocessed.csv' DELIMITER ',' HEADER CSV;
 
-create table unmarried_adults3 as select * from all_adults2 where marital_status ='unmarried';
-alter table unmarried_adults3 drop marital_status;
-create table married_adults3 as select * from all_adults2 where marital_status ='married';
-alter table married_adults3 drop marital_status;
+create table unmarried_adults as select * from all_adults2 where marital_status ='unmarried';
+alter table unmarried_adults drop marital_status;
+create table married_adults as select * from all_adults2 where marital_status ='married';
+alter table married_adults drop marital_status;
 
 
 drop view s0_married;
