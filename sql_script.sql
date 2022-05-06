@@ -1,3 +1,4 @@
+
 drop table all_adults;
 drop table unmarried_adults;
 drop table married_adults;
